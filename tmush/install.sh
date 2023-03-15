@@ -1,0 +1,1 @@
+make && sudo mv tmush /usr/local/bin/tmush
