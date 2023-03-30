@@ -17,6 +17,7 @@ extern struct planlist todos[SIZE];
 
 extern unsigned char length;
 
+extern char *db_path;
 
 #define DATABASE_CORRUPTION false
 
@@ -29,7 +30,7 @@ extern unsigned char length;
  */
 static bool read_from_database(FILE* fp)
 {
-    fp = fopen("database/db.bin", "rb");
+    fp = fopen(db_path, "rb");
     if (NULL != fp) {
         /* get number of plans */
         fseek(fp, 0L, SEEK_END);
@@ -59,7 +60,7 @@ static bool read_from_database(FILE* fp)
  */
 static bool save_todo(FILE *fp)
 {
-    fp = fopen("database/db.bin", "wb");
+    fp = fopen(db_path, "wb");
     if (NULL == fp) {
         puts("Can't save your todo");
         return SAVE_ERROR;
@@ -86,7 +87,7 @@ static bool save_todo(FILE *fp)
 bool create_database(FILE *fp)
 {
     puts("This is your first time using todolist app");
-    fp = fopen("database/db.bin", "wb");
+    fp = fopen(db_path, "wb");
     if (NULL == fp) {
         puts("Create database error");
         fclose(fp);
