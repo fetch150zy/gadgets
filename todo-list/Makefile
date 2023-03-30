@@ -6,7 +6,7 @@ vpath %.c src
 CC := gcc
 RM := rm -f
 
-TARGET := app.out
+TARGET := todo
 OBJS := $(patsubst %.c,%.o,$(wildcard *.c))
 OBJS += $(patsubst %.c,%.o,$(wildcard src/*.c))
 
@@ -25,4 +25,4 @@ frame.o : include/operate.h include/ui.h
 .PHONY : clean
 
 clean:
-	$(RM) ${TARGET} ${OBJS}
+	$(RM) ${OBJS}

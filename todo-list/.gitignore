@@ -1,8 +1,0 @@
-.vscode
-
-database/db.bin
-
-build
-
-*.out 
-*.o
